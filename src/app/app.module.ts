@@ -9,6 +9,7 @@ import { FooterComponent } from './shared/components/footer/footer.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { SerachResultsComponent } from './components/search-page/serach-results/serach-results.component';
 import { SearchHeaderComponent } from './components/search-page/search-header/search-header.component';
+import { HomePageComponent } from './components/home-page/home-page.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { SearchHeaderComponent } from './components/search-page/search-header/se
     FooterComponent,
     SearchPageComponent,
     SerachResultsComponent,
-    SearchHeaderComponent
+    SearchHeaderComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
