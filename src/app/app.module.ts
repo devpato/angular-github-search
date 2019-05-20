@@ -8,6 +8,7 @@ import { SearchComponent } from './shared/components/search/search.component';
 import { FooterComponent } from './shared/components/footer/footer.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { SerachResultsComponent } from './components/search-page/serach-results/serach-results.component';
+import { SearchHeaderComponent } from './components/search-page/search-header/search-header.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { SerachResultsComponent } from './components/search-page/serach-results/
     SearchComponent,
     FooterComponent,
     SearchPageComponent,
-    SerachResultsComponent
+    SerachResultsComponent,
+    SearchHeaderComponent
   ],
   imports: [
     BrowserModule,
