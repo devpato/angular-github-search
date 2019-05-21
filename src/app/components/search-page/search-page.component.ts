@@ -13,7 +13,7 @@ export class SearchPageComponent implements OnInit {
   constructor(private githubSearchService: GithubSearchService) { }
 
   ngOnInit() {
-    this.$users = this.githubSearchService.getUsers('code');
+    this.$users = this.githubSearchService.getUsers('devpato');
   }
 
 }
