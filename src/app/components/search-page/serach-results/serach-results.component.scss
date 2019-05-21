@@ -40,5 +40,14 @@
                 color: $primary-green;
             }
         }
+
+        a {
+            color: $primary-black;
+            font-size: 16px;
+        }
+
+        * {
+            margin: 0 4px;
+        }
     }
 }}
