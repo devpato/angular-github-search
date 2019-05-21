@@ -1,0 +1,26 @@
+@import './../../sass/variables';
+.search {
+    &-form {
+        input{
+            padding: 10px;
+            font-size: 14px;
+            border: 0;
+            width: 500px;
+            border-top-left-radius:  15px 15px;
+            border-bottom-left-radius:  15px 15px;
+            -webkit-appearance: none;
+            outline: none;
+        }
+        button {
+            width: 100px;
+            padding: 10px;
+            border-top-right-radius:  15px 15px;
+            border-bottom-right-radius:  15px 15px;
+            background: $primary-green;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            border: 0;   
+        }
+    }
+}
