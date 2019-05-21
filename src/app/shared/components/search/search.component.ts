@@ -10,10 +10,10 @@ import { User } from '../../modules/user.model';
 })
 export class SearchComponent implements OnInit {
   $githubSearch: Observable<User>;
+
   constructor(private githubSearchService: GithubSearchService) { }
 
   ngOnInit() {
     this.$githubSearch = this.githubSearchService.getUsers('devpato');
   }
-
 }
