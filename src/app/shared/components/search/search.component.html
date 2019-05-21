@@ -1,6 +1,14 @@
 <div class="search">
-  <form class="search-form">
-    <input type="text" placeholder="Search" name="search2">
-    <button type="submit"><i class="fas fa-search"></i></button>
+  <form class="search-form" [formGroup]="searchForm" (ngSubmit)="onSearch()">
+    <input
+      type="text"
+      placeholder="Search"
+      name="search"
+      formControlName="searchParam"
+      required
+    />
+    <button type="submit" [disabled]="!searchForm.valid">
+      <i class="fas fa-search"></i>
+    </button>
   </form>
 </div>
