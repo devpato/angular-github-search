@@ -22,7 +22,7 @@
               <span class="user-name">{{ user.login }}</span>
               <div class="user-score">
                 <span class="user-score-number"
-                  >{{ user.score | number: "1.1" }}+</span
+                  >{{ user.score | number: '1.1' }}+</span
                 >
               </div>
               <a href="https://github.com/{{ user.login }}"
@@ -31,7 +31,7 @@
             </div>
           </div>
         </p-header>
-        {{ reposCount }}
+        {{ reposCount }} - {{ followersCount }} - {{ starredCount }}
       </p-panel>
     </ng-template>
     <ng-template pTemplate="paginatorleft" let-state> </ng-template>
