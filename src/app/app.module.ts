@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 /* Shared Components */
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
@@ -19,6 +20,7 @@ import { SearchHeaderComponent } from './components/search-page/search-header/se
 
 /*PrimeNG */
 import {DataViewModule} from 'primeng/dataview';
+import {PanelModule} from 'primeng/panel';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import {DataViewModule} from 'primeng/dataview';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    DataViewModule
+    DataViewModule,
+    PanelModule,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
