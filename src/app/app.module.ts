@@ -22,6 +22,7 @@ import { SearchHeaderComponent } from "./components/search-page/search-header/se
 /*PrimeNG */
 import { DataViewModule } from "primeng/dataview";
 import { PanelModule } from "primeng/panel";
+import { UserResultComponent } from './components/search-page/serach-results/user-result/user-result.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +33,8 @@ import { PanelModule } from "primeng/panel";
     SearchPageComponent,
     SerachResultsComponent,
     SearchHeaderComponent,
-    HomePageComponent
+    HomePageComponent,
+    UserResultComponent
   ],
   imports: [
     BrowserModule,
