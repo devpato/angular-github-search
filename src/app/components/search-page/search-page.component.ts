@@ -13,6 +13,12 @@ export class SearchPageComponent implements OnInit {
   constructor(private githubSearchService: GithubSearchService) {}
 
   ngOnInit() {
-    this.$users = this.githubSearchService.getUsers("code");
+    this.search();
+  }
+
+  search() {
+    this.githubSearchService.searchParam.subscribe(param => {
+      this.$users = this.githubSearchService.getUsers(param);
+    });
   }
 }
