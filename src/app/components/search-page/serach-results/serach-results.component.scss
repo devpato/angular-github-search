@@ -1,56 +1,92 @@
-@import '../../../shared/sass/variables';
+@import "../../../shared/sass/variables";
 .search-results-page {
-    width: 100%;
-    margin-top: 16px;
+  width: 100%;
+  margin-top: 16px;
 
-    ::ng-deep {
-        .ui-dataview {
-            width: 1000px;
-            height: 500px;
-            a {
-            &.ui-button {
-            &.ui-state-active {
-                background-color: $primary-green;
-            }}
+  ::ng-deep {
+    .ui-dataview {
+      width: 1000px;
+      height: 500px;
+      a {
+        &.ui-button {
+          &.ui-state-active {
+            background-color: $primary-green;
+          }
+        }
 
-            &.ui-paginator-page {
-                &.ui-state-active {
-                    background-color: $primary-green;
-                }
-            }
+        &.ui-paginator-page {
+          &.ui-state-active {
+            background-color: $primary-green;
+          }
         }
-        &-content {
-            padding: 0;
+      }
+      &-content {
+        padding: 0;
+      }
+      p-panel {
+        width: 100%;
+        .ui-panel-titlebar.ui-widget-header {
+          display: flex;
+          align-items: center;
+
+          .ui-panel-titlebar-icon {
+            font-size: 14px;
+            margin-left: auto;
+          }
         }
+      }
     }
 
     .user {
+      display: flex;
+      align-items: center;
+      img {
+        width: 48px;
+        height: 48px;
+        border-radius: 4px;
+      }
+      .main-details {
         display: flex;
         align-items: center;
-        padding: 8px;
-        border-bottom: 1px solid $primary-grey;
-        img {
-            width: 48px;
-            height: 48px;
-            border-radius: 4px;
-        }
-        &-name, &-score{
-            font-weight: 700;
-            color: $primary-black;
-            font-size: 18px;
-            &-number {
-                font-size: 14px;
-                color: $primary-green;
+        .user-name,
+        .user-score {
+          width: 180px;
+          font-weight: 700;
+          color: $primary-black;
+          font-size: 18px;
+          &-number {
+            font-size: 16px;
+            color: $primary-green;
+            a {
+              color: $primary-black;
+              font-size: 14px;
             }
+          }
         }
 
         a {
-            color: $primary-black;
-            font-size: 16px;
+          color: $primary-black;
+          font-size: 16px;
+          text-align: center;
         }
+      }
 
-        * {
-            margin: 0 4px;
+      * {
+        margin: 0 4px;
+      }
+
+      &-name,
+      &-score {
+        font-weight: 700;
+        color: $primary-black;
+        font-size: 18px;
+        width: 180px;
+        &-number {
+          text-align: center;
+          font-size: 14px;
+          color: $primary-green;
         }
+      }
     }
-}}
+  }
+}

@@ -1,25 +1,44 @@
 <div class="search-results-page" *ngIf="users">
-  <span class="total-count">Total Results: {{users.items.length}}</span>
-  <p-dataView [value]="users.items" [paginator]="true" [rows]="5"  *ngIf="users; else loader">
+  <span class="total-count">Total Results: {{ users.items.length }}</span>
+  <p-dataView
+    [value]="users.items"
+    [paginator]="true"
+    [rows]="5"
+    *ngIf="users; else loader"
+  >
+    <p-header>
+      <!-- <p-dataViewLayoutOptions></p-dataViewLayoutOptions> -->
+    </p-header>
+    <ng-template let-user pTemplate="listItem">
+      <p-panel
+        [toggleable]="true"
+        [collapsed]="true"
+        (click)="pullUsersDetails(user.login)"
+      >
         <p-header>
-            <!-- <p-dataViewLayoutOptions></p-dataViewLayoutOptions> -->
-        </p-header>
-        <ng-template let-user pTemplate="listItem">
-            <div class="user">
-               <img src="{{user.avatar_url}}" alt="" class="avatar">
-               <span class="user-name">{{user.login}}</span>
-               <div class="user-score"><span class="user-score-number">{{user.score |  number : '1.1'}}+</span></div>
-               <a href="https://github.com/{{user.login}}"><i class="fab fa-github"></i></a>
-                <button (click)="getRepos(user.login)">View</button>
-                <span class="repos">{{reposCount}}</span>
+          <div class="user">
+            <img src="{{ user.avatar_url }}" alt="" class="avatar" />
+            <div class="main-details">
+              <span class="user-name">{{ user.login }}</span>
+              <div class="user-score">
+                <span class="user-score-number"
+                  >{{ user.score | number: "1.1" }}+</span
+                >
+              </div>
+              <a href="https://github.com/{{ user.login }}"
+                ><i class="fab fa-github"></i
+              ></a>
             </div>
-        </ng-template>
-        <ng-template pTemplate="paginatorleft" let-state> 
-        </ng-template>
-        <ng-template pTemplate="paginatorright">
-        </ng-template>
-    </p-dataView>
-    <ng-template #loader>
-      LOADING...
+          </div>
+        </p-header>
+        {{ reposCount }}
+        <p-footer> </p-footer>
+      </p-panel>
     </ng-template>
+    <ng-template pTemplate="paginatorleft" let-state> </ng-template>
+    <ng-template pTemplate="paginatorright"> </ng-template>
+  </p-dataView>
+  <ng-template #loader>
+    LOADING...
+  </ng-template>
 </div>
