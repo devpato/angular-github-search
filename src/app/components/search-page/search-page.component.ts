@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { GithubSearchService } from 'src/app/shared/services/github-search.service';
+import { Observable } from 'rxjs';
+import { User } from 'src/app/shared/modules/user.model';
 
 @Component({
   selector: 'app-search-page',
@@ -6,10 +9,11 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./search-page.component.scss']
 })
 export class SearchPageComponent implements OnInit {
-
-  constructor() { }
+  $users: Observable<User>
+  constructor(private githubSearchService: GithubSearchService) { }
 
   ngOnInit() {
+    this.$users = this.githubSearchService.getUsers('code');
   }
 
 }
