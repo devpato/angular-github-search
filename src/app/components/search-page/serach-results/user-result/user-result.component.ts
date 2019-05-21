@@ -22,7 +22,6 @@ export class UserResultComponent implements OnInit, OnDestroy {
   constructor(private githubSearchService: GithubSearchService) {}
 
   ngOnInit() {
-    console.log(this.starredCount);
     this.arrSuscriptions = [];
   }
 
