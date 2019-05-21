@@ -19,5 +19,18 @@
       </div>
     </div>
   </p-header>
-  {{ reposCount }} - {{ followersCount }} - {{ starredCount }}
+  <div
+    class="body-panel"
+    *ngIf="
+      reposCount !== undefined &&
+        followersCount !== undefined &&
+        starredCount !== undefined;
+      else loader
+    "
+  >
+    {{ reposCount }} - {{ followersCount }} - {{ starredCount }}
+  </div>
+  <ng-template #loader>
+    LOADING...
+  </ng-template>
 </p-panel>

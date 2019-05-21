@@ -11,9 +11,9 @@ import { GithubSearchService } from 'src/app/shared/services/github-search.servi
 export class UserResultComponent implements OnInit, OnDestroy {
   @Input()
   user: UserItems;
-  reposCount = 0;
-  followersCount = 0;
-  starredCount = 0;
+  reposCount: number;
+  followersCount: number;
+  starredCount: number;
   arrSuscriptions: Subscription[];
   $reposSubscription: Subscription;
   $followersSubscrition: Subscription;
@@ -22,6 +22,7 @@ export class UserResultComponent implements OnInit, OnDestroy {
   constructor(private githubSearchService: GithubSearchService) {}
 
   ngOnInit() {
+    console.log(this.starredCount);
     this.arrSuscriptions = [];
   }
 
