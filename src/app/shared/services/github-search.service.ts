@@ -1,6 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { Observable } from "rxjs";
+import { Observable, BehaviorSubject } from "rxjs";
 import { User } from "../modules/user.model";
 @Injectable({
   providedIn: "root"
@@ -8,6 +8,8 @@ import { User } from "../modules/user.model";
 export class GithubSearchService {
   BASE_URL = "https://api.github.com";
   USER_URL = "/search/users";
+  private searchParamSource = new BehaviorSubject<string>(null);
+  searchParam = this.searchParamSource.asObservable();
   constructor(private http: HttpClient) {}
 
   getUsers(user: string): Observable<User> {
@@ -18,8 +20,22 @@ export class GithubSearchService {
   }
 
   getRepos(user: string): Observable<any> {
-    console.log(user);
     const REPOS_URL = "/users/" + user + "/repos";
     return this.http.get<any>(this.BASE_URL + REPOS_URL);
+  }
+
+  getFollowers(user: string): Observable<any> {
+    const FOLLOWERS_URL = "/users/" + user + "/followers";
+    return this.http.get<any>(this.BASE_URL + FOLLOWERS_URL);
+  }
+
+  getStarred(user: string): Observable<any> {
+    const STARRED_URL = "/users/" + user + "/starred";
+    return this.http.get<any>(this.BASE_URL + STARRED_URL);
+  }
+
+  setSearchParam(searchParam: string): void {
+    console.log(searchParam);
+    this.searchParamSource.next(searchParam);
   }
 }
