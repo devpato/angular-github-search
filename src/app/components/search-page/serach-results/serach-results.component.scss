@@ -1,4 +1,4 @@
-@import "../../../shared/sass/variables";
+@import '../../../shared/sass/variables';
 .search-results-page {
   width: 100%;
   margin-top: 16px;
@@ -22,70 +22,6 @@
       }
       &-content {
         padding: 0;
-      }
-      p-panel {
-        width: 100%;
-        .ui-panel-titlebar.ui-widget-header {
-          display: flex;
-          align-items: center;
-
-          .ui-panel-titlebar-icon {
-            font-size: 14px;
-            margin-left: auto;
-          }
-        }
-      }
-    }
-
-    .user {
-      display: flex;
-      align-items: center;
-      img {
-        width: 48px;
-        height: 48px;
-        border-radius: 4px;
-      }
-      .main-details {
-        display: flex;
-        align-items: center;
-        .user-name,
-        .user-score {
-          width: 180px;
-          font-weight: 700;
-          color: $primary-black;
-          font-size: 18px;
-          &-number {
-            font-size: 16px;
-            color: $primary-green;
-            a {
-              color: $primary-black;
-              font-size: 14px;
-            }
-          }
-        }
-
-        a {
-          color: $primary-black;
-          font-size: 16px;
-          text-align: center;
-        }
-      }
-
-      * {
-        margin: 0 4px;
-      }
-
-      &-name,
-      &-score {
-        font-weight: 700;
-        color: $primary-black;
-        font-size: 18px;
-        width: 180px;
-        &-number {
-          text-align: center;
-          font-size: 14px;
-          color: $primary-green;
-        }
       }
     }
   }

@@ -1,3 +1,23 @@
-<p>
-  user-result works!
-</p>
+<p-panel
+  [toggleable]="true"
+  [collapsed]="true"
+  (click)="pullUsersDetails(user.login)"
+>
+  <p-header>
+    <div class="user">
+      <img src="{{ user.avatar_url }}" alt="" class="avatar" />
+      <div class="main-details">
+        <span class="user-name">{{ user.login }}</span>
+        <div class="user-score">
+          <span class="user-score-number"
+            >{{ user.score | number: '1.1' }}+</span
+          >
+        </div>
+        <a href="https://github.com/{{ user.login }}"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </div>
+  </p-header>
+  {{ reposCount }} - {{ followersCount }} - {{ starredCount }}
+</p-panel>
