@@ -17,6 +17,9 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 import { SerachResultsComponent } from './components/search-page/serach-results/serach-results.component';
 import { SearchHeaderComponent } from './components/search-page/search-header/search-header.component';
 
+/*PrimeNG */
+import {DataViewModule} from 'primeng/dataview';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,7 +34,8 @@ import { SearchHeaderComponent } from './components/search-page/search-header/se
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    DataViewModule
   ],
   providers: [],
   bootstrap: [AppComponent]
