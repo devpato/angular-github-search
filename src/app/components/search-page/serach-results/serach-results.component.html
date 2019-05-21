@@ -1,3 +1,33 @@
-<p>
-  serach-results works!
-</p>
+<div class="search-results-page">
+  <span class="total-count" *ngIf="users">Total Results: {{users.items.length}}</span>
+    <p-dataView [value]="users.items" [paginator]="true" [rows]="5"  *ngIf="users; else loader">
+        <p-header>
+            <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
+        </p-header>
+        <ng-template let-user pTemplate="listItem">
+            <div class="user">
+               <img src="{{user.avatar_url}}" alt="" class="avatar">
+               <span class="user-name">{{user.login}}</span>
+               <div class="user-score">Score <span class="user-score-number">{{user.score |  number : '1.1'}}+</span></div>
+               <a href="https://github.com/{{user.login}}"><i class="fab fa-github"></i></a>
+            </div>
+        </ng-template>
+        <ng-template let-user pTemplate="gridItem">
+            <div class="ui-g-12 ui-md-3">
+                <div class="user">
+                    <img src="{{user.avatar_url}}" alt="" class="avatar">
+                    <span class="user-name">{{user.login}}</span>
+                    <div class="user-score">Score <span class="user-score-number">{{user.score |  number : '1.1'}}+</span></div>
+                    <a href="https://github.com/{{user.login}}"><i class="fab fa-github"></i></a>
+                 </div>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="paginatorleft" let-state> 
+        </ng-template>
+        <ng-template pTemplate="paginatorright">
+        </ng-template>
+    </p-dataView>
+    <ng-template #loader>
+      LOADING...
+    </ng-template>
+</div>

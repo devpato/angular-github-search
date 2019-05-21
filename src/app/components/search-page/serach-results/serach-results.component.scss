@@ -1,0 +1,44 @@
+@import '../../../shared/sass/variables';
+.search-results-page {
+    width: 100%;
+    margin-top: 16px;
+
+    ::ng-deep {
+        .ui-dataview {
+            width: 1000px;
+            height: 500px;
+            a {
+            &.ui-button {
+            &.ui-state-active {
+                background-color: $primary-green;
+            }}
+
+            &.ui-paginator-page {
+                &.ui-state-active {
+                    background-color: $primary-green;
+                }
+            }
+        }
+    }
+
+    .user {
+        display: flex;
+        align-items: center;
+        padding: 16px;
+        border: 1px solid $primary-grey;
+        img {
+            width: 48px;
+            height: 48px;
+            border-radius: 4px;
+        }
+        &-name, &-score{
+            font-weight: 700;
+            color: $primary-black;
+            font-size: 18px;
+            &-number {
+                font-size: 14px;
+                color: $primary-green;
+            }
+        }
+    }
+}}

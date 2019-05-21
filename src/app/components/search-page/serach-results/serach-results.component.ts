@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { User } from 'src/app/shared/modules/user.model';
 
 @Component({
   selector: 'app-serach-results',
@@ -6,7 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./serach-results.component.scss']
 })
 export class SerachResultsComponent implements OnInit {
-
+  @Input()
+  users: User;
   constructor() { }
 
   ngOnInit() {
