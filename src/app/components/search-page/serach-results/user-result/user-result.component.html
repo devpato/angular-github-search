@@ -28,9 +28,19 @@
       else loader
     "
   >
-    {{ reposCount }} - {{ followersCount }} - {{ starredCount }}
+    <span class="repos">
+      <i class="fab fa-git-alt"></i> Repositories: {{ reposCount }}
+    </span>
+    <span class="followers">
+      <i class="fas fa-user-friends"></i> Followers: {{ followersCount }}
+    </span>
+    <span class="starred">
+      <i class="fas fa-star"></i> Starred: {{ starredCount }}
+    </span>
   </div>
   <ng-template #loader>
-    LOADING...
+    <div class="loader">
+      <img src="../../../../../assets/Ellipsis-1s-100px.gif" alt="" />
+    </div>
   </ng-template>
 </p-panel>

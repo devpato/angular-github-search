@@ -17,6 +17,34 @@
       &-titlebar.ui-panel-titlebar {
         border: 0;
       }
+      .body-panel {
+        display: flex;
+        justify-content: space-around;
+        span {
+          font-size: 14px;
+          &.repos {
+            i {
+              color: #f87b05;
+            }
+          }
+          &.starred {
+            i {
+              color: #ffdf00;
+            }
+          }
+
+          &.followers {
+            i {
+              color: #1da1f2;
+            }
+          }
+        }
+      }
+      .loader {
+        height: 80px;
+        display: flex;
+        justify-content: center;
+      }
     }
   }
 }
