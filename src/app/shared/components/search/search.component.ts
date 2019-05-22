@@ -19,17 +19,20 @@ export class SearchComponent implements OnInit {
   constructor(
     private githubSearchService: GithubSearchService,
     private fb: FormBuilder,
-    private store: Store<{ projects: User }>
+    private store: Store<{ users: User; subdata: any }>
   ) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.pullData('thisdot');
+  }
 
   onSearch(): void {
-    this.store.dispatch(new UsersActions.ResetUsers(null));
-    this.githubSearchService.setSearchParam(this.searchForm.value.searchParam);
-    this.store.dispatch(
-      new UsersActions.SearchUsers(this.searchForm.value.searchParam)
-    );
+    this.pullData(this.searchForm.value.searchParam);
     this.searchForm.reset();
+  }
+
+  pullData(user: string) {
+    this.store.dispatch(new UsersActions.ResetUsers(null));
+    this.store.dispatch(new UsersActions.SearchUsers(user));
   }
 }

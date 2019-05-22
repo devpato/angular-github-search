@@ -1,8 +1,9 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { UserItems } from 'src/app/shared/modules/user-items.model';
-import { Subscription } from 'rxjs';
+import { Subscription, forkJoin } from 'rxjs';
 import { GithubSearchService } from 'src/app/shared/services/github-search.service';
-
+import { Store } from '@ngrx/store';
+import * as UsersActions from 'src/app/shared/state/actions/users.actions';
 @Component({
   selector: 'app-user-result',
   templateUrl: './user-result.component.html',
@@ -18,54 +19,38 @@ export class UserResultComponent implements OnInit, OnDestroy {
   $reposSubscription: Subscription;
   $followersSubscrition: Subscription;
   $starredSubscription: Subscription;
+  $allCallsSubcription: Subscription;
+  subData = [];
 
-  constructor(private githubSearchService: GithubSearchService) {}
+  constructor(
+    private githubSearchService: GithubSearchService,
+    private store: Store<{ users: any; subdata: any }>
+  ) {}
 
   ngOnInit() {
     this.arrSuscriptions = [];
   }
 
-  /*Note: I know I could've make some observable and use the aync pipe in the HTML.
+  /*Note: I know I could've make an observable and use the aync pipe in the HTML. I could have also use NgRX to store the data,
+   but it didn't make sense to me since the data can change at any time.
    I just wanted you to see I know how to do other things .
    */
-  getRepos(user: string): void {
-    this.$reposSubscription = this.githubSearchService
-      .getRepos(user)
-      .subscribe(repos => {
-        this.reposCount = repos.length;
-      });
-    this.arrSuscriptions.push(this.$reposSubscription);
-  }
-
-  getFollowers(user: string): void {
-    this.$followersSubscrition = this.githubSearchService
-      .getFollowers(user)
-      .subscribe(followers => {
-        this.followersCount = followers.length;
-      });
-    this.arrSuscriptions.push(this.$followersSubscrition);
-  }
-
-  getStarred(user: string): void {
-    this.$starredSubscription = this.githubSearchService
-      .getStarred(user)
-      .subscribe(starred => {
-        this.starredCount = starred.length;
-      });
-    this.arrSuscriptions.push(this.$starredSubscription);
-  }
 
   pullUsersDetails(user: string): void {
-    this.getRepos(user);
-    this.getFollowers(user);
-    this.getStarred(user);
+    let repos = this.githubSearchService.getRepos(user);
+    let followers = this.githubSearchService.getFollowers(user);
+    let starred = this.githubSearchService.getStarred(user);
+    this.$allCallsSubcription = forkJoin([repos, followers, starred]).subscribe(
+      results => {
+        this.subData = results;
+      }
+    );
+    //this.store.dispatch(new UsersActions.SearchSubData(user));
   }
 
   ngOnDestroy(): void {
-    this.arrSuscriptions.map(sus => {
-      if (sus) {
-        sus.unsubscribe();
-      }
-    });
+    if (this.$allCallsSubcription) {
+      this.$allCallsSubcription.unsubscribe;
+    }
   }
 }

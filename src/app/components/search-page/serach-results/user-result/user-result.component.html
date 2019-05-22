@@ -19,23 +19,15 @@
       </div>
     </div>
   </p-header>
-  <div
-    class="body-panel"
-    *ngIf="
-      reposCount !== undefined &&
-        followersCount !== undefined &&
-        starredCount !== undefined;
-      else loader
-    "
-  >
+  <div class="body-panel" *ngIf="subData.length > 0; else loader">
     <span class="repos">
-      <i class="fab fa-git-alt"></i> Repositories: {{ reposCount }}
+      <i class="fab fa-git-alt"></i> Repositories: {{ subData[0].length }}
     </span>
     <span class="followers">
-      <i class="fas fa-user-friends"></i> Followers: {{ followersCount }}
+      <i class="fas fa-user-friends"></i> Followers: {{ subData[1].length }}
     </span>
     <span class="starred">
-      <i class="fas fa-star"></i> Starred: {{ starredCount }}
+      <i class="fas fa-star"></i> Starred: {{ subData[2].length }}
     </span>
   </div>
   <ng-template #loader>
