@@ -7,7 +7,7 @@
     *ngIf="users; else loader"
   >
     <p-header>
-      <!-- <p-dataViewLayoutOptions></p-dataViewLayoutOptions> -->
+      <p-dataViewLayoutOptions></p-dataViewLayoutOptions>
     </p-header>
     <ng-template let-user pTemplate="listItem">
       <app-user-result [user]="user"></app-user-result>

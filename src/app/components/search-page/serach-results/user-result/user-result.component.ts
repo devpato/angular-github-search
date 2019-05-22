@@ -25,8 +25,10 @@ export class UserResultComponent implements OnInit, OnDestroy {
     this.arrSuscriptions = [];
   }
 
-  /*Note: I know I could've make some observable and use the aync pipe in the HTML, I just wanted you to see I know how to do other things */
-  getRepos(user: string) {
+  /*Note: I know I could've make some observable and use the aync pipe in the HTML.
+   I just wanted you to see I know how to do other things .
+   */
+  getRepos(user: string): void {
     this.$reposSubscription = this.githubSearchService
       .getRepos(user)
       .subscribe(repos => {
@@ -35,7 +37,7 @@ export class UserResultComponent implements OnInit, OnDestroy {
     this.arrSuscriptions.push(this.$reposSubscription);
   }
 
-  getFollowers(user: string) {
+  getFollowers(user: string): void {
     this.$followersSubscrition = this.githubSearchService
       .getFollowers(user)
       .subscribe(followers => {
@@ -44,7 +46,7 @@ export class UserResultComponent implements OnInit, OnDestroy {
     this.arrSuscriptions.push(this.$followersSubscrition);
   }
 
-  getStarred(user: string) {
+  getStarred(user: string): void {
     this.$starredSubscription = this.githubSearchService
       .getStarred(user)
       .subscribe(starred => {
@@ -53,13 +55,13 @@ export class UserResultComponent implements OnInit, OnDestroy {
     this.arrSuscriptions.push(this.$starredSubscription);
   }
 
-  pullUsersDetails(user: string) {
+  pullUsersDetails(user: string): void {
     this.getRepos(user);
     this.getFollowers(user);
     this.getStarred(user);
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     this.arrSuscriptions.map(sus => {
       if (sus) {
         sus.unsubscribe();
