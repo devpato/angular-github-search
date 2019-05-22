@@ -7,14 +7,14 @@ import * as UserActions from '../actions/users.actions';
 import { GithubSearchService } from '../../services/github-search.service';
 @Injectable()
 export class UsersEffects {
+  searchParam: string;
   @Effect()
   users$ = this.actions$.pipe(
-    ofType(ActionTypes.GET_USERS),
-    switchMap(() =>
-      this.githubSearch.getUsers('').pipe(
-        map(res => {
-          return res;
-        }), //CHECK THIS LINE
+    ofType(ActionTypes.SEARCH_USERS),
+    map(action => action['payload']),
+    switchMap(payload =>
+      this.githubSearch.getUsers(payload).pipe(
+        map(res => new UserActions.GetUsersSuccess(res)),
         catchError(() => of({ type: '[Users API] Users Loaded Error' }))
       )
     )

@@ -17,3 +17,8 @@ export const selectUsers: MemoizedSelector<object, User> = createSelector(
   selectUsersState,
   getUsers
 );
+
+export const selectSearchUser: MemoizedSelector<object, User> = createSelector(
+  selectUsersState,
+  getUsers
+);
