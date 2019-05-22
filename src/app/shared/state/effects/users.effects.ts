@@ -8,7 +8,7 @@ import { GithubSearchService } from '../../services/github-search.service';
 @Injectable()
 export class UsersEffects {
   @Effect()
-  projects$ = this.actions$.pipe(
+  users$ = this.actions$.pipe(
     ofType(ActionTypes.GET_USERS),
     switchMap(() =>
       this.githubSearch.getUsers('').pipe(

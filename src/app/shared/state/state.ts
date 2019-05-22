@@ -1,7 +1,7 @@
 import { User } from '../modules/user.model';
 
 export interface State {
-  users: User[];
+  users: User;
 }
 
 export const initialState = {
