@@ -19,30 +19,23 @@ import { HomePageComponent } from './components/home-page/home-page.component';
 import { SearchPageComponent } from './components/search-page/search-page.component';
 import { SerachResultsComponent } from './components/search-page/serach-results/serach-results.component';
 import { SearchHeaderComponent } from './components/search-page/search-header/search-header.component';
+import { UserResultComponent } from './components/search-page/serach-results/user-result/user-result.component';
 
 /*PrimeNG */
-import { DataViewModule } from 'primeng/dataview';
-import { PanelModule } from 'primeng/panel';
-import { UserResultComponent } from './components/search-page/serach-results/user-result/user-result.component';
+// import { DataViewModule } from 'primeng/dataview';
+// import { PanelModule } from 'primeng/panel';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    SearchComponent,
     FooterComponent,
-    SearchPageComponent,
-    SerachResultsComponent,
-    SearchHeaderComponent,
-    HomePageComponent,
-    UserResultComponent
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    DataViewModule,
-    PanelModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
     NgrxModule
