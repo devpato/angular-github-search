@@ -5,7 +5,9 @@ export enum ActionTypes {
   GET_USERS = '[Get Users Component] GetUsers',
   SEARCH_USERS = '[Search Component] SearchUsers',
   GET_USERS_SUCCESS = '[ Success Search Component] GetUsersSuccess',
-  RESET_USERS = '[Reset] ResetUsers'
+  RESET_USERS = '[Reset] ResetUsers',
+  SEARCH_SUB_DATA = '[ Search sub data] SearchSubData',
+  GET_SUB_SUCCESS = '[ Success Search Sub Data] SuccessSubData'
 }
 
 export class GetUsers implements Action {
@@ -22,9 +24,25 @@ export class ResetUsers implements Action {
   constructor(public payload: User) {}
 }
 
-export class GetUsersSuccess implements Action {
-  readonly type = ActionTypes.GET_USERS_SUCCESS;
-  constructor(public payload: User) {}
+export class SearchSubData implements Action {
+  readonly type = ActionTypes.SEARCH_SUB_DATA;
+  constructor(public payload: string) {}
 }
 
-export type UserActions = GetUsers | SearchUsers | GetUsersSuccess | ResetUsers;
+export class SuccessSubData implements Action {
+  readonly type = ActionTypes.GET_SUB_SUCCESS;
+  constructor(public payload: any) {}
+}
+
+export class GetUsersSuccess implements Action {
+  readonly type = ActionTypes.GET_USERS_SUCCESS;
+  constructor(public payload: any) {}
+}
+
+export type UserActions =
+  | GetUsers
+  | SearchUsers
+  | GetUsersSuccess
+  | ResetUsers
+  | SearchSubData
+  | SuccessSubData;
