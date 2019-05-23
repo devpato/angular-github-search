@@ -25,24 +25,24 @@ export class UsersEffects {
 
   @Effect()
   subData$ = this.actions$.pipe(
-    ofType(ActionTypes.SEARCH_SUB_DATA),
-    map(action => action['payload']),
+    ofType<any>(ActionTypes.SEARCH_SUB_DATA),
+    map(action => action.payload),
     switchMap(payload => {
-      const repos = this.githubSearch.getRepos(payload);
-      const followers = this.githubSearch.getFollowers(payload);
-      const starred = this.githubSearch.getStarred(payload);
-      let arrayResults = [];
-      forkJoin([repos, followers, starred]).subscribe(results => {
-        this.store.dispatch(
-          new UserActions.SuccessSubData({
-            user: payload,
-            repos: results[0],
-            followers: results[1],
-            starred: results[2]
-          })
-        );
-      });
-      return arrayResults;
+      return forkJoin(
+        this.githubSearch.getRepos(payload),
+        this.githubSearch.getFollowers(payload),
+        this.githubSearch.getStarred(payload)
+      ).pipe(
+        map(
+          ([repos, followers, starred]) =>
+            new UserActions.SuccessSubData({
+              user: payload,
+              repos: repos,
+              followers: followers,
+              starred: starred
+            })
+        )
+      );
     })
   );
 
