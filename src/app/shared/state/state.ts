@@ -7,5 +7,5 @@ export interface State {
 
 export const initialState = {
   users: null,
-  subdata: []
+  subdata: null
 };

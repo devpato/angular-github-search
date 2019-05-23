@@ -14,6 +14,11 @@ export const selectUsersState: MemoizedSelector<
   State
 > = createFeatureSelector<State>('usersStore');
 
+export const selectSubDataState: MemoizedSelector<
+  object,
+  State
+> = createFeatureSelector<State>('usersStore');
+
 export const selectUsers: MemoizedSelector<object, User> = createSelector(
   selectUsersState,
   getUsers
@@ -26,8 +31,8 @@ export const selectSearchUser: MemoizedSelector<object, User> = createSelector(
 
 export const selectSearchSubData: MemoizedSelector<
   object,
-  User
+  any
 > = createSelector(
-  selectUsersState,
+  selectSubDataState,
   geSubData
 );

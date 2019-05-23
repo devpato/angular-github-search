@@ -13,7 +13,6 @@ export class GithubSearchService {
   constructor(private http: HttpClient) {}
 
   getUsers(user: string): Observable<User> {
-    console.log(user);
     let params = new HttpParams().set('q', user);
     return this.http.get<User>(this.BASE_URL + this.USER_URL, {
       params: params

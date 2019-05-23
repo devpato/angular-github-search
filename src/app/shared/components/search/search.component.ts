@@ -19,7 +19,7 @@ export class SearchComponent implements OnInit {
   constructor(
     private githubSearchService: GithubSearchService,
     private fb: FormBuilder,
-    private store: Store<{ users: User; subdata: any }>
+    private store: Store<{ users: User }>
   ) {}
 
   ngOnInit() {

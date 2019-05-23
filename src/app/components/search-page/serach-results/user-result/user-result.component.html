@@ -19,15 +19,16 @@
       </div>
     </div>
   </p-header>
-  <div class="body-panel" *ngIf="subData.length > 0; else loader">
+  <div class="body-panel" *ngIf="$subData | async as subData; else loader">
     <span class="repos">
-      <i class="fab fa-git-alt"></i> Repositories: {{ subData[0].length }}
+      <i class="fab fa-git-alt"></i> Repositories: {{ subData.repos.length }}
     </span>
     <span class="followers">
-      <i class="fas fa-user-friends"></i> Followers: {{ subData[1].length }}
+      <i class="fas fa-user-friends"></i> Followers:
+      {{ subData.followers.length }}
     </span>
     <span class="starred">
-      <i class="fas fa-star"></i> Starred: {{ subData[2].length }}
+      <i class="fas fa-star"></i> Starred: {{ subData.starred.length }}
     </span>
   </div>
   <ng-template #loader>

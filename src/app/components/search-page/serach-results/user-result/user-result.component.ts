@@ -1,9 +1,12 @@
 import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { UserItems } from 'src/app/shared/modules/user-items.model';
-import { Subscription, forkJoin } from 'rxjs';
+import { Subscription, forkJoin, Observable } from 'rxjs';
 import { GithubSearchService } from 'src/app/shared/services/github-search.service';
 import { Store } from '@ngrx/store';
 import * as UsersActions from 'src/app/shared/state/actions/users.actions';
+import * as UsersSelectors from 'src/app/shared/state/selectors/users.selector';
+import { finalize } from 'rxjs/operators';
+import { User } from 'src/app/shared/modules/user.model';
 @Component({
   selector: 'app-user-result',
   templateUrl: './user-result.component.html',
@@ -15,21 +18,15 @@ export class UserResultComponent implements OnInit, OnDestroy {
   reposCount: number;
   followersCount: number;
   starredCount: number;
-  arrSuscriptions: Subscription[];
-  $reposSubscription: Subscription;
-  $followersSubscrition: Subscription;
-  $starredSubscription: Subscription;
   $allCallsSubcription: Subscription;
-  subData = [];
+  $subData: Observable<any>;
 
   constructor(
     private githubSearchService: GithubSearchService,
-    private store: Store<{ users: any; subdata: any }>
+    private store: Store<{ users: any }>
   ) {}
 
-  ngOnInit() {
-    this.arrSuscriptions = [];
-  }
+  ngOnInit() {}
 
   /*Note: I know I could've make an observable and use the aync pipe in the HTML. I could have also use NgRX to store the data,
    but it didn't make sense to me since the data can change at any time.
@@ -37,15 +34,16 @@ export class UserResultComponent implements OnInit, OnDestroy {
    */
 
   pullUsersDetails(user: string): void {
-    let repos = this.githubSearchService.getRepos(user);
-    let followers = this.githubSearchService.getFollowers(user);
-    let starred = this.githubSearchService.getStarred(user);
-    this.$allCallsSubcription = forkJoin([repos, followers, starred]).subscribe(
-      results => {
-        this.subData = results;
-      }
-    );
-    //this.store.dispatch(new UsersActions.SearchSubData(user));
+    // let repos = this.githubSearchService.getRepos(user);
+    // let followers = this.githubSearchService.getFollowers(user);
+    // let starred = this.githubSearchService.getStarred(user);
+    // this.$allCallsSubcription = forkJoin([repos, followers, starred]).subscribe(
+    //   results => {
+    //     this.subData = results;
+    //   }
+    // );
+    this.store.dispatch(new UsersActions.SearchSubData(user));
+    this.$subData = this.store.select(UsersSelectors.selectSearchSubData);
   }
 
   ngOnDestroy(): void {

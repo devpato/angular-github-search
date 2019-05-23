@@ -14,7 +14,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   $users: Observable<User>;
   $userngrx: Observable<User>;
   $userStoreSubscrition: Subscription;
-  constructor(private store: Store<{ projects: User }>) {}
+  constructor(private store: Store<{ users: User }>) {}
 
   ngOnInit() {
     this.getUsers();
