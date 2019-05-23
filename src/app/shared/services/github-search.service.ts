@@ -8,8 +8,6 @@ import { User } from '../modules/user.model';
 export class GithubSearchService {
   BASE_URL = 'https://api.github.com';
   USER_URL = '/search/users';
-  private searchParamSource = new BehaviorSubject<string>(null);
-  searchParam = this.searchParamSource.asObservable();
   constructor(private http: HttpClient) {}
 
   getUsers(user: string): Observable<User> {
@@ -32,9 +30,5 @@ export class GithubSearchService {
   getStarred(user: string): Observable<any> {
     const STARRED_URL = '/users/' + user + '/starred';
     return this.http.get<any>(this.BASE_URL + STARRED_URL);
-  }
-
-  setSearchParam(searchParam: string): void {
-    this.searchParamSource.next(searchParam);
   }
 }
