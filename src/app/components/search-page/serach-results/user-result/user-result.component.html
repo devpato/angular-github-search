@@ -24,11 +24,12 @@
   </p-header>
   <div class="body-panel" *ngIf="$subData | async as subData; else loader">
     <span class="repos">
-      <i class="fab fa-git-alt"></i> Repositories: {{ subData.repos.length }}
+      <i class="fab fa-git-alt"></i> Repositories:
+      {{ subData.bio.public_repos }}
     </span>
     <span class="followers">
       <i class="fas fa-user-friends"></i> Followers:
-      {{ subData.followers.length }}
+      {{ subData.bio.followers }}
     </span>
     <span class="starred">
       <i class="fas fa-star"></i> Starred: {{ subData.starred.length }}
