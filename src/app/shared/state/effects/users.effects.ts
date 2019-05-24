@@ -5,8 +5,7 @@ import { map, catchError, switchMap } from 'rxjs/operators';
 import { ActionTypes } from '../actions/users.actions';
 import * as UserActions from '../actions/users.actions';
 import { GithubSearchService } from '../../services/github-search.service';
-import { Store } from '@ngrx/store';
-import { User } from '../../modules/user.model';
+
 @Injectable()
 export class UsersEffects {
   subData = [];
