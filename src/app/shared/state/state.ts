@@ -3,9 +3,11 @@ import { User } from '../modules/user.model';
 export interface State {
   users: any;
   subdata: any;
+  selectedUser: any;
 }
 
 export const initialState = {
   users: null,
-  subdata: []
+  subdata: [],
+  selectedUser: null
 };
