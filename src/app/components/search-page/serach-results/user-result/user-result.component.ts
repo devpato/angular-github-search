@@ -39,7 +39,7 @@ export class UserResultComponent implements OnInit {
     this.store
       .select(UsersSelectors.selectSearchSubData)
       .subscribe(selectedUser =>
-        this.store.dispatch(new UsersActions.GetSelectedUser(selectedUser))
+        this.store.dispatch(new UsersActions.SetSelectedUser(selectedUser))
       );
   }
 }

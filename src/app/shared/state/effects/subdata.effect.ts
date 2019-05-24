@@ -14,10 +14,9 @@ export class SubDataEffects {
     map(action => action['payload']),
     switchMap(payload => {
       let repos = this.githubSearch.getRepos(payload);
-      let followers = this.githubSearch.getFollowers(payload);
       let starred = this.githubSearch.getStarred(payload);
       let arrayResultls = [];
-      forkJoin([repos, followers, starred]).subscribe(results => {
+      forkJoin([repos, starred]).subscribe(results => {
         arrayResultls = results;
       });
       return arrayResultls;

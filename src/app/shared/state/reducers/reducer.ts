@@ -12,7 +12,7 @@ export function searchReducer(state = initialState, action: UserActions) {
     case ActionTypes.GET_SUB_SUCCESS:
       return { ...state, subdata: [...state.subdata, action.payload] };
 
-    case ActionTypes.GET_SELECTED_USER:
+    case ActionTypes.SET_SELECTED_USER:
       return { ...state, selectedUser: action.payload };
 
     case ActionTypes.RESET_USERS:

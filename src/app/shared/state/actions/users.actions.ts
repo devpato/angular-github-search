@@ -8,7 +8,7 @@ export enum ActionTypes {
   RESET_USERS = '[Reset] ResetUsers',
   SEARCH_SUB_DATA = '[ Search sub data] SearchSubData',
   GET_SUB_SUCCESS = '[ Success Search Sub Data] SuccessSubData',
-  GET_SELECTED_USER = '[Get Selected User] GetSelectedUser'
+  SET_SELECTED_USER = '[Get Selected User] SetSelectedUser'
 }
 
 export class GetUsers implements Action {
@@ -30,8 +30,8 @@ export class SearchSubData implements Action {
   constructor(public payload: string) {}
 }
 
-export class GetSelectedUser implements Action {
-  readonly type = ActionTypes.GET_SELECTED_USER;
+export class SetSelectedUser implements Action {
+  readonly type = ActionTypes.SET_SELECTED_USER;
   constructor(public payload: any) {}
 }
 
@@ -52,4 +52,4 @@ export type UserActions =
   | ResetUsers
   | SearchSubData
   | SuccessSubData
-  | GetSelectedUser;
+  | SetSelectedUser;
