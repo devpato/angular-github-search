@@ -32,7 +32,7 @@ export class SearchSubData implements Action {
 
 export class GetSelectedUser implements Action {
   readonly type = ActionTypes.GET_SELECTED_USER;
-  constructor(public payload: string) {}
+  constructor(public payload: any) {}
 }
 
 export class SuccessSubData implements Action {
