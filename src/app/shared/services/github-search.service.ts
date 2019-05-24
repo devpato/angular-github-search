@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../modules/user.model';
+import { UserBio } from '../models/user-bio.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -30,5 +31,10 @@ export class GithubSearchService {
   getStarred(user: string): Observable<any> {
     const STARRED_URL = '/users/' + user + '/starred';
     return this.http.get<any>(this.BASE_URL + STARRED_URL);
+  }
+
+  getUserBio(user: string): Observable<UserBio> {
+    const STARRED_URL = '/users/' + user;
+    return this.http.get<UserBio>(this.BASE_URL + STARRED_URL);
   }
 }
