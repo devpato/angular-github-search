@@ -1,5 +1,8 @@
 <div class="search-page">
-  <i class="fab fa-github logo"></i>
-  <app-search></app-search>
-  <app-serach-results [users]="($users | async)"></app-serach-results>
+  <app-search-sidebar></app-search-sidebar>
+  <div class="search">
+    <i class="fab fa-github logo"></i>
+    <app-search></app-search>
+    <app-serach-results [users]="$users | async"></app-serach-results>
+  </div>
 </div>
