@@ -23,11 +23,6 @@ export class GithubSearchService {
     return this.http.get<any>(this.BASE_URL + REPOS_URL);
   }
 
-  getFollowers(user: string): Observable<any> {
-    const FOLLOWERS_URL = '/users/' + user + '/followers';
-    return this.http.get<any>(this.BASE_URL + FOLLOWERS_URL);
-  }
-
   getStarred(user: string): Observable<any> {
     const STARRED_URL = '/users/' + user + '/starred';
     return this.http.get<any>(this.BASE_URL + STARRED_URL);
