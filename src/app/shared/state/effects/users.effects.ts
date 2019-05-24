@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Actions, Effect, ofType } from '@ngrx/effects';
-import { EMPTY, of, forkJoin } from 'rxjs';
-import { map, mergeMap, catchError, switchMap } from 'rxjs/operators';
+import { of, forkJoin } from 'rxjs';
+import { map, catchError, switchMap } from 'rxjs/operators';
 import { ActionTypes } from '../actions/users.actions';
 import * as UserActions from '../actions/users.actions';
 import { GithubSearchService } from '../../services/github-search.service';
@@ -41,6 +41,9 @@ export class UsersEffects {
               followers: followers,
               starred: starred
             })
+        ),
+        catchError(() =>
+          of({ type: '[Users Subdata API] Users Subdata Loaded Error' })
         )
       );
     })
@@ -48,7 +51,6 @@ export class UsersEffects {
 
   constructor(
     private actions$: Actions,
-    private githubSearch: GithubSearchService,
-    private store: Store<{ users: User; subdata: any }>
+    private githubSearch: GithubSearchService
   ) {}
 }
