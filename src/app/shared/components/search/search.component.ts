@@ -16,13 +16,9 @@ export class SearchComponent implements OnInit {
     searchParam: ['', Validators.required]
   });
 
-  constructor(
-    private githubSearchService: GithubSearchService,
-    private fb: FormBuilder,
-    private store: Store<{ users: User }>
-  ) {}
+  constructor(private fb: FormBuilder, private store: Store<{ users: User }>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.pullData('thisdot');
   }
 
@@ -31,7 +27,7 @@ export class SearchComponent implements OnInit {
     this.searchForm.reset();
   }
 
-  pullData(user: string) {
+  pullData(user: string): void {
     this.store.dispatch(new UsersActions.ResetUsers(null));
     this.store.dispatch(new UsersActions.SearchUsers(user));
   }

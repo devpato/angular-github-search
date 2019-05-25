@@ -11,11 +11,10 @@ import * as UsersSelectors from '../../shared/state/selectors/users.selector';
 })
 export class SearchPageComponent implements OnInit, OnDestroy {
   $users: Observable<User>;
-  $userngrx: Observable<User>;
   $userStoreSubscrition: Subscription;
-  constructor(private store: Store<{ users: User }>) {}
+  constructor(private store: Store<{ users: User[] }>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getUsers();
   }
 
@@ -27,7 +26,7 @@ export class SearchPageComponent implements OnInit, OnDestroy {
       });
   }
 
-  ngOnDestroy() {
+  ngOnDestroy(): void {
     if (this.$userStoreSubscrition) {
       this.$userStoreSubscrition.unsubscribe;
     }

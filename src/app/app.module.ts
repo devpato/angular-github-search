@@ -7,8 +7,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { NgrxModule } from './shared/modules/ngrx.module';
 
 /* Shared Components */
-import { NavbarComponent } from './shared/components/navbar/navbar.component';
-import { FooterComponent } from './shared/components/footer/footer.component';
 import { AppComponent } from './app.component';
 
 /*PrimeNG */
@@ -16,7 +14,7 @@ import { AppComponent } from './app.component';
 // import { PanelModule } from 'primeng/panel';
 
 @NgModule({
-  declarations: [AppComponent, NavbarComponent, FooterComponent],
+  declarations: [AppComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
