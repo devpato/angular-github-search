@@ -1,5 +1,5 @@
-import { Component, OnInit, Input } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 import { UiService } from 'src/app/shared/services/ui.service';
 import { User } from 'src/app/shared/models/user.model';
 
@@ -8,11 +8,12 @@ import { User } from 'src/app/shared/models/user.model';
   templateUrl: './tabs.component.html',
   styleUrls: ['./tabs.component.scss']
 })
-export class TabsComponent implements OnInit {
+export class TabsComponent implements OnInit, OnDestroy {
   @Input()
   users: User[];
   $tabSelected: Observable<boolean>;
   flag = false;
+  $tabSelectedSubscription: Subscription;
 
   constructor(private uiServivce: UiService) {}
 
@@ -21,6 +22,14 @@ export class TabsComponent implements OnInit {
   }
 
   isTabSelected(): void {
-    this.uiServivce.dataTabSelected.subscribe(flag => (this.flag = flag));
+    this.$tabSelectedSubscription = this.uiServivce.dataTabSelected.subscribe(
+      flag => (this.flag = flag)
+    );
+  }
+
+  ngOnDestroy() {
+    if (this.$tabSelectedSubscription) {
+      this.$tabSelectedSubscription.unsubscribe();
+    }
   }
 }

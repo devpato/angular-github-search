@@ -9,9 +9,8 @@ import * as UsersSelectors from '../../shared/state/selectors/users.selector';
   templateUrl: './search-page.component.html',
   styleUrls: ['./search-page.component.scss']
 })
-export class SearchPageComponent implements OnInit, OnDestroy {
-  $users: Observable<User>;
-  $userStoreSubscrition: Subscription;
+export class SearchPageComponent implements OnInit {
+  $users: Observable<User[]>;
   constructor(private store: Store<{ users: User[] }>) {}
 
   ngOnInit(): void {
@@ -19,16 +18,6 @@ export class SearchPageComponent implements OnInit, OnDestroy {
   }
 
   getUsers(): void {
-    this.$userStoreSubscrition = this.store
-      .select(UsersSelectors.selectUsers)
-      .subscribe(res => {
-        this.$users = of(res);
-      });
-  }
-
-  ngOnDestroy(): void {
-    if (this.$userStoreSubscrition) {
-      this.$userStoreSubscrition.unsubscribe;
-    }
+    this.$users = this.store.select(UsersSelectors.selectUsers);
   }
 }
