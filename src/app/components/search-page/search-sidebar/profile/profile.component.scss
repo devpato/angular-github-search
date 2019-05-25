@@ -56,4 +56,14 @@
       }
     }
   }
+
+  .view-github {
+    font-size: 50px;
+    color: $primary-black;
+    text-align: center;
+
+    &:hover {
+      color: $primary-green;
+    }
+  }
 }
