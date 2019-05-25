@@ -13,6 +13,8 @@ import { SearchSidebarComponent } from './search-sidebar/search-sidebar.componen
 import { ProfileComponent } from './search-sidebar/profile/profile.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ReposComponent } from './tabs/repos/repos.component';
+import { LoaderComponent } from 'src/app/shared/components/loader/loader.component';
+
 const routes: Routes = [
   {
     path: '',
@@ -29,7 +31,8 @@ const routes: Routes = [
     SearchSidebarComponent,
     ProfileComponent,
     TabsComponent,
-    ReposComponent
+    ReposComponent,
+    LoaderComponent
   ],
   imports: [
     CommonModule,

@@ -9,10 +9,6 @@ import { NgrxModule } from './shared/modules/ngrx.module';
 /* Shared Components */
 import { AppComponent } from './app.component';
 
-/*PrimeNG */
-// import { DataViewModule } from 'primeng/dataview';
-// import { PanelModule } from 'primeng/panel';
-
 @NgModule({
   declarations: [AppComponent],
   imports: [
