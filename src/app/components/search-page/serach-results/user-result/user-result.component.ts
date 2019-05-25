@@ -22,24 +22,6 @@ export class UserResultComponent implements OnInit {
 
   ngOnInit() {}
 
-  pullUsersDetails(login: string): void {
-    this.toggle = !this.toggle;
-    if (this.toggle) {
-      this.store
-        .select(UsersSelectors.selectSearchSubData)
-        .pipe(
-          map(usersSubdata =>
-            usersSubdata.find(userSD => userSD.user === login)
-          )
-        )
-        .subscribe(userSD => {
-          userSD === undefined
-            ? this.store.dispatch(new UsersActions.SearchSubData(login))
-            : (this.$subData = of(userSD));
-        });
-    }
-  }
-
   onSelectUser(selectedUser: any): void {
     this.uiService.setTabSelected(false);
     this.store.dispatch(new UsersActions.SetSelectedUser(null));
@@ -52,7 +34,9 @@ export class UserResultComponent implements OnInit {
       )
       .subscribe(selected => {
         selected === undefined
-          ? this.pullUsersDetails(selectedUser.login)
+          ? this.store.dispatch(
+              new UsersActions.SearchSubData(selectedUser.login)
+            )
           : this.store.dispatch(new UsersActions.SetSelectedUser(selected));
         this.uiService.setTabSelected(true);
       });

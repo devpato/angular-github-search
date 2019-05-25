@@ -1,8 +1,4 @@
-<p-panel
-  [toggleable]="true"
-  [collapsed]="true"
-  (click)="pullUsersDetails(user.login)"
->
+<p-panel [collapsed]="true">
   <p-header>
     <div class="user">
       <img src="{{ user.avatar_url }}" alt="" class="avatar" />
@@ -24,22 +20,4 @@
       </div>
     </div>
   </p-header>
-  <div class="body-panel" *ngIf="$subData | async as subData; else loader">
-    <span class="repos">
-      <i class="fab fa-git-alt"></i> Repositories:
-      {{ subData.bio.public_repos }}
-    </span>
-    <span class="followers">
-      <i class="fas fa-user-friends"></i> Followers:
-      {{ subData.bio.followers }}
-    </span>
-    <span class="starred">
-      <i class="fas fa-star"></i> Starred: {{ subData.starred.length }}
-    </span>
-  </div>
-  <ng-template #loader>
-    <div class="loader">
-      <img src="../../../../../assets/Ellipsis-1s-100px.gif" alt="" />
-    </div>
-  </ng-template>
 </p-panel>
