@@ -6,6 +6,8 @@ import * as UsersActions from 'src/app/shared/state/actions/users.actions';
 import * as UsersSelectors from 'src/app/shared/state/selectors/users.selector';
 import { map } from 'rxjs/operators';
 import { UiService } from 'src/app/shared/services/ui.service';
+import { UserFullProfile } from 'src/app/shared/models/user-full-profile';
+import { User } from 'src/app/shared/models/user.model';
 @Component({
   selector: 'app-user-result',
   templateUrl: './user-result.component.html',
@@ -14,15 +16,14 @@ import { UiService } from 'src/app/shared/services/ui.service';
 export class UserResultComponent implements OnInit {
   @Input()
   user: UserItems;
-  $subData: Observable<any>;
-  toggle = false;
-  selectedUser: any;
+  $subData: Observable<UserFullProfile>;
+  selectedUser: UserFullProfile;
 
   constructor(private store: Store<any>, private uiService: UiService) {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 
-  onSelectUser(selectedUser: any): void {
+  onSelectUser(selectedUser: UserItems): void {
     this.uiService.setTabSelected(false);
     this.store.dispatch(new UsersActions.SetSelectedUser(null));
     this.store

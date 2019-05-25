@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { User } from 'src/app/shared/models/user.model';
 import * as UsersSelectors from '../../../shared/state/selectors/users.selector';
 import { Observable } from 'rxjs';
+import { UserFullProfile } from 'src/app/shared/models/user-full-profile';
 
 @Component({
   selector: 'app-search-sidebar',
@@ -10,10 +10,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./search-sidebar.component.scss']
 })
 export class SearchSidebarComponent implements OnInit {
-  $selectedUser: Observable<any>;
-  constructor(private store: Store<{ users: User }>) {}
+  $selectedUser: Observable<UserFullProfile>;
+  constructor(private store: Store<{ selectedUser: UserFullProfile }>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getSelectedUser();
   }
 

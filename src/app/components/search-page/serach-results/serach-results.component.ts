@@ -14,5 +14,5 @@ export class SerachResultsComponent implements OnInit {
 
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit(): void {}
 }

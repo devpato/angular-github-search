@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { UserFullProfile } from 'src/app/shared/models/user-full-profile';
 
 @Component({
   selector: 'app-profile',
@@ -7,10 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProfileComponent implements OnInit {
   @Input()
-  selectedUser: any;
+  selectedUser: UserFullProfile;
   constructor() {}
 
-  ngOnInit() {
-    console.log(this.selectedUser);
-  }
+  ngOnInit() {}
 }

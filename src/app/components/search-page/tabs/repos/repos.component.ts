@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
-import { User } from 'src/app/shared/models/user.model';
 import * as UsersSelectors from '../../../../shared/state/selectors/users.selector';
+import { UserFullProfile } from 'src/app/shared/models/user-full-profile';
 
 @Component({
   selector: 'app-repos',
@@ -10,8 +10,8 @@ import * as UsersSelectors from '../../../../shared/state/selectors/users.select
   styleUrls: ['./repos.component.scss']
 })
 export class ReposComponent implements OnInit {
-  $selectedUser: Observable<any>;
-  constructor(private store: Store<{ users: User }>) {}
+  $selectedUser: Observable<UserFullProfile>;
+  constructor(private store: Store<{ selectedUser: UserFullProfile }>) {}
 
   ngOnInit(): void {
     this.getSelectedUser();
