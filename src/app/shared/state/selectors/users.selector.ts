@@ -7,7 +7,8 @@ import { State } from '../state';
 import { User } from '../../modules/user.model';
 
 const getUsers = (state: State): User => state.users;
-const geSubData = (state: State): User => state.subdata;
+const geSubData = (state: State): any => state.subdata;
+const geSelectedUserData = (state: State): any => state.selectedUser;
 
 export const selectUsersState: MemoizedSelector<
   object,
@@ -35,4 +36,12 @@ export const selectSearchSubData: MemoizedSelector<
 > = createSelector(
   selectSubDataState,
   geSubData
+);
+
+export const geSelectedUserDataState: MemoizedSelector<
+  object,
+  any
+> = createSelector(
+  selectUsersState,
+  geSelectedUserData
 );

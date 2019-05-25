@@ -32,4 +32,9 @@ export class GithubSearchService {
     const STARRED_URL = '/users/' + user;
     return this.http.get<UserBio>(this.BASE_URL + STARRED_URL);
   }
+
+  getUserOrgs(user: string): Observable<any> {
+    const STARRED_URL = '/users/' + user + '/orgs';
+    return this.http.get<any>(this.BASE_URL + STARRED_URL);
+  }
 }

@@ -3,7 +3,6 @@ import { Observable, of, Subscription } from 'rxjs';
 import { User } from 'src/app/shared/modules/user.model';
 import { Store } from '@ngrx/store';
 import * as UsersSelectors from '../../shared/state/selectors/users.selector';
-import * as UsersActions from '../../shared/state/actions/users.actions';
 
 @Component({
   selector: 'app-search-page',

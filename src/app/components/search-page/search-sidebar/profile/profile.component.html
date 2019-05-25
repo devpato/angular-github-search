@@ -1,37 +1,29 @@
 <div class="profile">
-  <img
-    src="https://avatars3.githubusercontent.com/u/11162114?v=4"
-    alt=""
-    class="avatar"
-  />
-  <div class="name">Patricio Vargas</div>
-  <div class="login">devpato</div>
+  <img src="{{ selectedUser.bio.avatar_url }}" alt="" class="avatar" />
+  <div class="name">{{ selectedUser.bio.name }}</div>
+  <div class="login">{{ selectedUser.bio.login }}</div>
   <div class="details">
-    <div class="bio">UX Software Engineer at TAMO Studio</div>
+    <div class="bio">{{ selectedUser.bio.bio }}</div>
     <div class="company">
       <i class="fas fa-user-friends icon"></i>
-      TAMO Studio
+      {{ selectedUser.bio.company }}
     </div>
     <div class="location">
-      <i class="fas fa-map-marker-alt"></i> Jacksonville
+      <i class="fas fa-map-marker-alt"></i> {{ selectedUser.bio.location }}
     </div>
     <div class="blog">
       <i class="fas fa-link"></i
-      ><a href="devpato.github.io"> devpato.github.io</a>
+      ><a href="devpato.github.io"> {{ selectedUser.bio.blog }}</a>
     </div>
   </div>
   <div class="organizations">
     <div class="title">Organizations</div>
     <div class="logos">
       <img
-        src="https://avatars3.githubusercontent.com/u/46367877?v=4"
+        src="{{ org.avatar_url }}"
         alt=""
         class="org"
-      />
-      <img
-        src="https://avatars1.githubusercontent.com/u/48394062?v=4"
-        alt=""
-        class="org"
+        *ngFor="let org of selectedUser.orgs"
       />
     </div>
   </div>

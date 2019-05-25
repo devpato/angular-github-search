@@ -30,15 +30,17 @@ export class UsersEffects {
       return forkJoin(
         this.githubSearch.getRepos(payload),
         this.githubSearch.getUserBio(payload),
-        this.githubSearch.getStarred(payload)
+        this.githubSearch.getStarred(payload),
+        this.githubSearch.getUserOrgs(payload)
       ).pipe(
         map(
-          ([repos, bio, starred]) =>
+          ([repos, bio, starred, orgs]) =>
             new UserActions.SuccessSubData({
               user: payload,
               repos: repos,
               bio: bio,
-              starred: starred
+              starred: starred,
+              orgs: orgs
             })
         ),
         catchError(() =>

@@ -15,8 +15,9 @@ export class UserResultComponent implements OnInit {
   user: UserItems;
   $subData: Observable<any>;
   toggle = false;
+  selectedUser: any;
 
-  constructor(private store: Store<{ users: any; subdata: any }>) {}
+  constructor(private store: Store<any>) {}
 
   ngOnInit() {}
 
@@ -25,21 +26,32 @@ export class UserResultComponent implements OnInit {
     if (this.toggle) {
       this.store
         .select(UsersSelectors.selectSearchSubData)
-        .pipe(map(users => users.find(user => user.user === login)))
-        .subscribe(user => {
-          user === undefined
+        .pipe(
+          map(usersSubdata =>
+            usersSubdata.find(userSD => userSD.user === login)
+          )
+        )
+        .subscribe(userSD => {
+          userSD === undefined
             ? this.store.dispatch(new UsersActions.SearchSubData(login))
-            : (this.$subData = of(user));
+            : (this.$subData = of(userSD));
         });
     }
   }
 
   onSelectUser(selectedUser: any): void {
-    this.store.dispatch(new UsersActions.SearchSubData(selectedUser.loging));
+    this.store.dispatch(new UsersActions.SetSelectedUser(null));
     this.store
       .select(UsersSelectors.selectSearchSubData)
-      .subscribe(selectedUser =>
-        this.store.dispatch(new UsersActions.SetSelectedUser(selectedUser))
-      );
+      .pipe(
+        map(usersSubdata =>
+          usersSubdata.find(userSD => userSD.user === selectedUser.login)
+        )
+      )
+      .subscribe(selected => {
+        selected === undefined
+          ? this.pullUsersDetails(selectedUser.login)
+          : this.store.dispatch(new UsersActions.SetSelectedUser(selected));
+      });
   }
 }
