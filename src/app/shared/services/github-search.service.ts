@@ -10,33 +10,33 @@ import { Repo } from '../models/repo.model';
 })
 export class GithubSearchService {
   BASE_URL = 'https://api.github.com';
-  USER_URL = '/search/users';
   constructor(private http: HttpClient) {}
 
   getUsers(user: string): Observable<User[]> {
     let params = new HttpParams().set('q', user);
-    return this.http.get<User[]>(this.BASE_URL + this.USER_URL, {
+    const USER_URL = '/search/users';
+    return this.http.get<User[]>(this.BASE_URL + USER_URL, {
       params: params
     });
   }
 
   getRepos(user: string): Observable<Repo[]> {
-    const REPOS_URL = '/users/' + user + '/repos';
+    const REPOS_URL = `/users/${user}/repos`;
     return this.http.get<Repo[]>(this.BASE_URL + REPOS_URL);
   }
 
   getStarred(user: string): Observable<Repo[]> {
-    const STARRED_URL = '/users/' + user + '/starred';
+    const STARRED_URL = `/users/${user}/starred`;
     return this.http.get<Repo[]>(this.BASE_URL + STARRED_URL);
   }
 
   getUserBio(user: string): Observable<UserBio> {
-    const STARRED_URL = '/users/' + user;
-    return this.http.get<UserBio>(this.BASE_URL + STARRED_URL);
+    const USER_BIO_URL = `/users/${user}`;
+    return this.http.get<UserBio>(this.BASE_URL + USER_BIO_URL);
   }
 
   getUserOrgs(user: string): Observable<UserOrgs[]> {
-    const STARRED_URL = '/users/' + user + '/orgs';
-    return this.http.get<UserOrgs[]>(this.BASE_URL + STARRED_URL);
+    const USER_ORGS_URL = `/users/${user}/orgs`;
+    return this.http.get<UserOrgs[]>(this.BASE_URL + USER_ORGS_URL);
   }
 }
