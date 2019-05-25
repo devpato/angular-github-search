@@ -5,6 +5,7 @@ import { map, catchError, switchMap } from 'rxjs/operators';
 import { ActionTypes } from '../actions/users.actions';
 import * as UserActions from '../actions/users.actions';
 import { GithubSearchService } from '../../services/github-search.service';
+import { UserFullProfile } from '../../models/user-full-profile';
 
 @Injectable()
 export class UsersEffects {
@@ -24,8 +25,8 @@ export class UsersEffects {
 
   @Effect()
   subData$ = this.actions$.pipe(
-    ofType<any>(ActionTypes.SEARCH_SUB_DATA),
-    map(action => action.payload),
+    ofType(ActionTypes.SEARCH_SUB_DATA),
+    map(action => action['payload']),
     switchMap(payload => {
       return forkJoin(
         this.githubSearch.getRepos(payload),

@@ -7,5 +7,5 @@ export interface UserFullProfile {
   repos: Repo[];
   bio: UserBio;
   starred: Repo[];
-  ors: UserOrgs[];
+  orgs: UserOrgs[];
 }

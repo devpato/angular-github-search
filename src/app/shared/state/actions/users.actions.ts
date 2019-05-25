@@ -1,5 +1,6 @@
 import { Action } from '@ngrx/store';
 import { User } from '../../models/user.model';
+import { UserFullProfile } from '../../models/user-full-profile';
 
 export enum ActionTypes {
   GET_USERS = '[Get Users Component] GetUsers',
@@ -32,12 +33,12 @@ export class SearchSubData implements Action {
 
 export class SetSelectedUser implements Action {
   readonly type = ActionTypes.SET_SELECTED_USER;
-  constructor(public payload: any) {}
+  constructor(public payload: UserFullProfile) {}
 }
 
 export class SuccessSubData implements Action {
   readonly type = ActionTypes.GET_SUB_SUCCESS;
-  constructor(public payload: any) {}
+  constructor(public payload: UserFullProfile) {}
 }
 
 export class GetUsersSuccess implements Action {

@@ -1,9 +1,10 @@
 import { User } from '../models/user.model';
+import { UserFullProfile } from '../models/user-full-profile';
 
 export interface State {
-  users: any;
-  subdata: any;
-  selectedUser: any;
+  users: User;
+  subdata: UserFullProfile[];
+  selectedUser: UserFullProfile;
 }
 
 export const initialState = {

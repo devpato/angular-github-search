@@ -5,10 +5,12 @@ import {
 } from '@ngrx/store';
 import { State } from '../state';
 import { User } from '../../models/user.model';
+import { UserFullProfile } from '../../models/user-full-profile';
 
 const getUsers = (state: State): User => state.users;
-const geSubData = (state: State): any => state.subdata;
-const geSelectedUserData = (state: State): any => state.selectedUser;
+const geSubData = (state: State): UserFullProfile[] => state.subdata;
+const geSelectedUserData = (state: State): UserFullProfile =>
+  state.selectedUser;
 
 export const selectUsersState: MemoizedSelector<
   object,
@@ -32,7 +34,7 @@ export const selectSearchUser: MemoizedSelector<object, User> = createSelector(
 
 export const selectSearchSubData: MemoizedSelector<
   object,
-  any
+  UserFullProfile[]
 > = createSelector(
   selectSubDataState,
   geSubData
@@ -40,7 +42,7 @@ export const selectSearchSubData: MemoizedSelector<
 
 export const geSelectedUserDataState: MemoizedSelector<
   object,
-  any
+  UserFullProfile
 > = createSelector(
   selectUsersState,
   geSelectedUserData
