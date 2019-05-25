@@ -27,4 +27,29 @@
       />
     </div>
   </div>
+  <div class="stats">
+    <div class="title">Stats</div>
+    <div class="details">
+      <div class="repos">
+        <i class="fab fa-git-alt"></i>
+        Repos:
+        {{ selectedUser.bio.public_repos }}
+      </div>
+      <div class="followers">
+        <i class="fas fa-users"></i>
+        Followers:
+        {{ selectedUser.bio.followers }}
+      </div>
+      <div class="following">
+        <i class="fas fa-user-friends"></i>
+        Following:
+        {{ selectedUser.bio.following }}
+      </div>
+      <div class="starred">
+        <i class="fas fa-star"></i>
+        Starred:
+        {{ selectedUser.starred.length }}
+      </div>
+    </div>
+  </div>
 </div>

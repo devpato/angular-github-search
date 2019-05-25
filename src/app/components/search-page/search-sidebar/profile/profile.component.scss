@@ -35,7 +35,8 @@
       }
     }
   }
-  .organizations {
+  .organizations,
+  .stats {
     margin-top: 8px;
     padding-top: 8px;
     border-top: 1px solid #e1e4e8;
@@ -44,10 +45,14 @@
       font-size: 14px;
       margin-bottom: 8px;
     }
+  }
+
+  .organizations {
     .logos {
       img {
         width: 35px;
         height: 35px;
+        margin: 1px;
       }
     }
   }
