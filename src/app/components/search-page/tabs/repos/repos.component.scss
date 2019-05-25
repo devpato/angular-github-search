@@ -1,0 +1,23 @@
+@import '../../../../shared/sass/variables';
+.repos {
+  height: 600px;
+  overflow-y: scroll;
+  .repo {
+    height: 100px;
+    border: 1px solid $primary-grey;
+    border-radius: 8px;
+    margin: 16px;
+    padding: 16px;
+    .language {
+      display: flex;
+      align-items: center;
+      .circle {
+        margin-right: 4px;
+        border-radius: 50%;
+        height: 14px;
+        width: 14px;
+        background-color: blueviolet;
+      }
+    }
+  }
+}

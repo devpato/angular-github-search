@@ -1,3 +1,15 @@
-<p>
-  repos works!
-</p>
+<div class="repos">
+  <ng-container *ngIf="$selectedUser | async as selectedUser">
+    <div class="repo" *ngFor="let repo of selectedUser.repos">
+      <a href="{{ repo.html_url }}">
+        <div class="name"><i class="fas fa-code"></i> {{ repo.name }}</div>
+      </a>
+      <div class="description">{{ repo.description }}</div>
+      <div class="language">
+        <div class="circle"></div>
+        {{ repo.language }}
+      </div>
+      <div class="forks">{{ repo.forks_count }}</div>
+    </div>
+  </ng-container>
+</div>
