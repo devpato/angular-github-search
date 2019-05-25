@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { UiService } from 'src/app/shared/services/ui.service';
+import { User } from 'src/app/shared/models/user.model';
 
 @Component({
   selector: 'app-tabs',
@@ -9,7 +10,7 @@ import { UiService } from 'src/app/shared/services/ui.service';
 })
 export class TabsComponent implements OnInit {
   @Input()
-  users: any;
+  users: User[];
   $tabSelected: Observable<boolean>;
   flag = false;
 

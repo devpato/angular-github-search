@@ -43,7 +43,7 @@ export class SuccessSubData implements Action {
 
 export class GetUsersSuccess implements Action {
   readonly type = ActionTypes.GET_USERS_SUCCESS;
-  constructor(public payload: any) {}
+  constructor(public payload: User[]) {}
 }
 
 export type UserActions =

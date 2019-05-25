@@ -19,7 +19,10 @@ export class UserResultComponent implements OnInit {
   $subData: Observable<UserFullProfile>;
   selectedUser: UserFullProfile;
 
-  constructor(private store: Store<any>, private uiService: UiService) {}
+  constructor(
+    private store: Store<{ selectedUser: UserFullProfile }>,
+    private uiService: UiService
+  ) {}
 
   ngOnInit(): void {}
 
