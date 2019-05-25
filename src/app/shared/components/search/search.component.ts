@@ -16,7 +16,10 @@ export class SearchComponent implements OnInit {
     searchParam: ['', Validators.required]
   });
 
-  constructor(private fb: FormBuilder, private store: Store<{ users: User }>) {}
+  constructor(
+    private fb: FormBuilder,
+    private store: Store<{ users: User[]; user: User }>
+  ) {}
 
   ngOnInit(): void {
     this.pullData('thisdot');
