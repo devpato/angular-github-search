@@ -2,15 +2,10 @@
   height: 100vh;
   width: 100%;
   display: flex;
-  .search {
+  .tabs {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: 4% auto;
-  }
-
-  .logo {
-    font-size: 48px;
-    margin: 16px;
   }
 }

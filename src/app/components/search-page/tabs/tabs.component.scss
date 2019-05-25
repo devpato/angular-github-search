@@ -1,0 +1,28 @@
+@import '../../../shared/sass/variables';
+::ng-deep p-tabView {
+  .ui-tabview.ui-tabview-top .ui-tabview-nav li.ui-state-active {
+    background-color: $primary-green;
+    border: none;
+    .ui-tabview-title {
+      font-weight: 100;
+    }
+    :hover {
+      background-color: $primary-black;
+    }
+  }
+  .ui-tabview-panels {
+    width: 1030px;
+    height: 650px;
+    .search {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 4% auto;
+    }
+
+    .logo {
+      font-size: 48px;
+      margin: 16px;
+    }
+  }
+}

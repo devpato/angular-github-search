@@ -7,9 +7,12 @@ import { UserResultComponent } from 'src/app/components/search-page/serach-resul
 import { SerachResultsComponent } from 'src/app/components/search-page/serach-results/serach-results.component';
 import { DataViewModule } from 'primeng/dataview';
 import { PanelModule } from 'primeng/panel';
+import { TabViewModule } from 'primeng/tabview';
 import { SearchPageComponent } from './search-page.component';
 import { SearchSidebarComponent } from './search-sidebar/search-sidebar.component';
 import { ProfileComponent } from './search-sidebar/profile/profile.component';
+import { TabsComponent } from './tabs/tabs.component';
+import { ReposComponent } from './tabs/repos/repos.component';
 const routes: Routes = [
   {
     path: '',
@@ -24,7 +27,9 @@ const routes: Routes = [
     SerachResultsComponent,
     SearchPageComponent,
     SearchSidebarComponent,
-    ProfileComponent
+    ProfileComponent,
+    TabsComponent,
+    ReposComponent
   ],
   imports: [
     CommonModule,
@@ -32,6 +37,7 @@ const routes: Routes = [
     ReactiveFormsModule,
     DataViewModule,
     PanelModule,
+    TabViewModule,
     RouterModule.forChild(routes)
   ]
 })
