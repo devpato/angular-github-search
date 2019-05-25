@@ -5,8 +5,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgrxModule } from './shared/modules/ngrx.module';
-
-/* Shared Components */
 import { AppComponent } from './app.component';
 
 @NgModule({
