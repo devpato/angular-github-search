@@ -5,15 +5,13 @@ import { RouterModule, Routes } from '@angular/router';
 import { SearchComponent } from '../../shared/components/search/search.component';
 import { UserResultComponent } from 'src/app/components/search-page/serach-results/user-result/user-result.component';
 import { SerachResultsComponent } from 'src/app/components/search-page/serach-results/serach-results.component';
-import { DataViewModule } from 'primeng/dataview';
-import { PanelModule } from 'primeng/panel';
-import { TabViewModule } from 'primeng/tabview';
 import { SearchPageComponent } from './search-page.component';
 import { SearchSidebarComponent } from './search-sidebar/search-sidebar.component';
 import { ProfileComponent } from './search-sidebar/profile/profile.component';
 import { TabsComponent } from './tabs/tabs.component';
 import { ReposComponent } from './tabs/repos/repos.component';
 import { LoaderComponent } from 'src/app/shared/components/loader/loader.component';
+import { PrimengModule } from 'src/app/shared/modules/primeng.module';
 
 const routes: Routes = [
   {
@@ -38,9 +36,7 @@ const routes: Routes = [
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
-    DataViewModule,
-    PanelModule,
-    TabViewModule,
+    PrimengModule,
     RouterModule.forChild(routes)
   ]
 })
