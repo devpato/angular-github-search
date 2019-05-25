@@ -24,5 +24,17 @@
       font-size: 48px;
       margin: 16px;
     }
+
+    .loader {
+      height: 650px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      img {
+        width: 40px;
+        height: 40px;
+      }
+    }
   }
 }

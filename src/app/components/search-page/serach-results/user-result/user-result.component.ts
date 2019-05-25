@@ -5,6 +5,7 @@ import { Store } from '@ngrx/store';
 import * as UsersActions from 'src/app/shared/state/actions/users.actions';
 import * as UsersSelectors from 'src/app/shared/state/selectors/users.selector';
 import { map, finalize } from 'rxjs/operators';
+import { UiService } from 'src/app/shared/services/ui.service';
 @Component({
   selector: 'app-user-result',
   templateUrl: './user-result.component.html',
@@ -17,7 +18,7 @@ export class UserResultComponent implements OnInit {
   toggle = false;
   selectedUser: any;
 
-  constructor(private store: Store<any>) {}
+  constructor(private store: Store<any>, private uiService: UiService) {}
 
   ngOnInit() {}
 
@@ -40,6 +41,7 @@ export class UserResultComponent implements OnInit {
   }
 
   onSelectUser(selectedUser: any): void {
+    this.uiService.setTabSelected(false);
     this.store.dispatch(new UsersActions.SetSelectedUser(null));
     this.store
       .select(UsersSelectors.selectSearchSubData)
@@ -52,6 +54,7 @@ export class UserResultComponent implements OnInit {
         selected === undefined
           ? this.pullUsersDetails(selectedUser.login)
           : this.store.dispatch(new UsersActions.SetSelectedUser(selected));
+        this.uiService.setTabSelected(true);
       });
   }
 }

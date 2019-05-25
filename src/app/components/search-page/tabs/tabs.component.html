@@ -1,12 +1,18 @@
 <p-tabView>
-  <p-tabPanel header="Search">
+  <p-tabPanel header="Search" [selected]="!flag">
     <div class="search">
       <i class="fab fa-github logo"></i>
       <app-search></app-search>
       <app-serach-results [users]="users"></app-serach-results>
     </div>
   </p-tabPanel>
-  <p-tabPanel header="Repos" [selected]="true">
-    <app-repos></app-repos>
+  <p-tabPanel header="Repos" [selected]="flag">
+    <app-repos *ngIf="flag; else loader"></app-repos>
+    <ng-template #loader>
+      <div class="loader">
+        <img src="../../../../assets/Ellipsis-1s-100px.gif" alt="" />
+        <span>Please Select a User to Quick View</span>
+      </div>
+    </ng-template>
   </p-tabPanel>
 </p-tabView>

@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
+import { UiService } from 'src/app/shared/services/ui.service';
+import { flatMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tabs',
@@ -9,7 +11,20 @@ import { Observable } from 'rxjs';
 export class TabsComponent implements OnInit {
   @Input()
   users: any;
-  constructor() {}
+  $tabSelected: Observable<boolean>;
+  flag = false;
 
-  ngOnInit() {}
+  constructor(private uiServivce: UiService) {}
+
+  ngOnInit() {
+    this.isTabSelected();
+  }
+
+  isTabSelected() {
+    this.uiServivce.dataTabSelected.subscribe(flag => (this.flag = flag));
+  }
+
+  swapTab() {
+    this.uiServivce.setTabSelected(!this.flag);
+  }
 }
