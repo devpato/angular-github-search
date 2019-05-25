@@ -13,7 +13,7 @@ export class ReposComponent implements OnInit {
   $selectedUser: Observable<any>;
   constructor(private store: Store<{ users: User }>) {}
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.getSelectedUser();
   }
 
@@ -21,5 +21,23 @@ export class ReposComponent implements OnInit {
     this.$selectedUser = this.store.select(
       UsersSelectors.geSelectedUserDataState
     );
+  }
+  whatLanguageIsMyRepo(language: string): string {
+    switch (language) {
+      case 'JavaScript':
+        return 'JavaScript';
+
+      case 'HTML':
+        return 'HTML';
+
+      case 'TypeScript':
+        return 'TypeScript';
+
+      case 'C#':
+        return 'c-sharp';
+
+      default:
+        return 'other-language';
+    }
   }
 }
