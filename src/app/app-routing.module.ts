@@ -4,7 +4,7 @@ import { SearchPageComponent } from './components/search-page/search-page.compon
 
 const routes: Routes = [
   {
-    path: 'search',
+    path: '',
     loadChildren:
       '../app/components/search-page/search-page.module#SearchPageModule'
   }
