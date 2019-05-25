@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { UserItems } from 'src/app/shared/modules/user-items.model';
-import { Observable, of } from 'rxjs';
+import { UserItems } from 'src/app/shared/models/user-items.model';
+import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as UsersActions from 'src/app/shared/state/actions/users.actions';
 import * as UsersSelectors from 'src/app/shared/state/selectors/users.selector';
-import { map, finalize } from 'rxjs/operators';
+import { map } from 'rxjs/operators';
 import { UiService } from 'src/app/shared/services/ui.service';
 @Component({
   selector: 'app-user-result',

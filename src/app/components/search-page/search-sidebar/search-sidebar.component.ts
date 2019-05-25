@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { User } from 'src/app/shared/modules/user.model';
+import { User } from 'src/app/shared/models/user.model';
 import * as UsersSelectors from '../../../shared/state/selectors/users.selector';
 import { Observable } from 'rxjs';
 

@@ -1,4 +1,4 @@
-import { User } from '../modules/user.model';
+import { User } from '../models/user.model';
 
 export interface State {
   users: any;

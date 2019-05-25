@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { User } from 'src/app/shared/modules/user.model';
+import { User } from 'src/app/shared/models/user.model';
 import { GithubSearchService } from 'src/app/shared/services/github-search.service';
 import { Observable, Subscription } from 'rxjs';
 

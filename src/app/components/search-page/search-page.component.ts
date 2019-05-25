@@ -1,6 +1,6 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Observable, of, Subscription } from 'rxjs';
-import { User } from 'src/app/shared/modules/user.model';
+import { User } from 'src/app/shared/models/user.model';
 import { Store } from '@ngrx/store';
 import * as UsersSelectors from '../../shared/state/selectors/users.selector';
 

@@ -1,5 +1,5 @@
 import { Action } from '@ngrx/store';
-import { User } from '../../modules/user.model';
+import { User } from '../../models/user.model';
 
 export enum ActionTypes {
   GET_USERS = '[Get Users Component] GetUsers',

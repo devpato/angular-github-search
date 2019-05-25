@@ -4,7 +4,7 @@ import {
   createFeatureSelector
 } from '@ngrx/store';
 import { State } from '../state';
-import { User } from '../../modules/user.model';
+import { User } from '../../models/user.model';
 
 const getUsers = (state: State): User => state.users;
 const geSubData = (state: State): any => state.subdata;
