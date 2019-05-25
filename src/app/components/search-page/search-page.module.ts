@@ -10,9 +10,6 @@ import { PanelModule } from 'primeng/panel';
 import { SearchPageComponent } from './search-page.component';
 import { SearchSidebarComponent } from './search-sidebar/search-sidebar.component';
 import { ProfileComponent } from './search-sidebar/profile/profile.component';
-import { StatsComponent } from './search-sidebar/stats/stats.component';
-import { ResultsComponent } from './search-sidebar/results/results.component';
-
 const routes: Routes = [
   {
     path: '',
@@ -27,9 +24,7 @@ const routes: Routes = [
     SerachResultsComponent,
     SearchPageComponent,
     SearchSidebarComponent,
-    ProfileComponent,
-    StatsComponent,
-    ResultsComponent
+    ProfileComponent
   ],
   imports: [
     CommonModule,
