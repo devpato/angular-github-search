@@ -4,7 +4,7 @@ This small app using the Github API to search and retrive the information from t
 
 ## Online version
 
-https://githubsearch-f4cd3.firebaseapp.com/
+[Github Search App](https://githubsearch-f4cd3.firebaseapp.com/)
 
 ## Angular CLI Version
 
