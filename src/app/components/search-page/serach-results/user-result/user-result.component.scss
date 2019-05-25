@@ -40,6 +40,15 @@
     height: 48px;
     border-radius: 4px;
   }
+
+  button {
+    background: $primary-black;
+    height: 24px;
+    border-radius: 15px;
+    color: white;
+    border: 0;
+    cursor: pointer;
+  }
   .main-details {
     display: flex;
     align-items: center;
@@ -61,8 +70,11 @@
 
     a {
       color: $primary-black;
-      font-size: 16px;
+      font-size: 14px;
       text-align: center;
+      i {
+        font-size: 16px;
+      }
     }
   }
 
