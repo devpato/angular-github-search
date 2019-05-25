@@ -2,7 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.9.
 
-#Online version
+##Online version
 https://githubsearch-f4cd3.firebaseapp.com/
 
 ## Development server
@@ -17,6 +17,6 @@ Run `ng generate component component-name` to generate a new component. You can 
 
 `ng build` passed ✅
 
-## Further help
+## Contributing to this project
 
 If you want to contribute to this repo, don't forget to create a Pull Request.
