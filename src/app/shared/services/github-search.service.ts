@@ -3,6 +3,8 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable, BehaviorSubject } from 'rxjs';
 import { User } from '../models/user.model';
 import { UserBio } from '../models/user-bio.model';
+import { UserOrgs } from '../models/user-orgs.model';
+import { Repo } from '../models/repo.model';
 @Injectable({
   providedIn: 'root'
 })
@@ -18,14 +20,14 @@ export class GithubSearchService {
     });
   }
 
-  getRepos(user: string): Observable<any> {
+  getRepos(user: string): Observable<Repo[]> {
     const REPOS_URL = '/users/' + user + '/repos';
     return this.http.get<any>(this.BASE_URL + REPOS_URL);
   }
 
-  getStarred(user: string): Observable<any> {
+  getStarred(user: string): Observable<Repo[]> {
     const STARRED_URL = '/users/' + user + '/starred';
-    return this.http.get<any>(this.BASE_URL + STARRED_URL);
+    return this.http.get<Repo[]>(this.BASE_URL + STARRED_URL);
   }
 
   getUserBio(user: string): Observable<UserBio> {
@@ -33,8 +35,8 @@ export class GithubSearchService {
     return this.http.get<UserBio>(this.BASE_URL + STARRED_URL);
   }
 
-  getUserOrgs(user: string): Observable<any> {
+  getUserOrgs(user: string): Observable<UserOrgs[]> {
     const STARRED_URL = '/users/' + user + '/orgs';
-    return this.http.get<any>(this.BASE_URL + STARRED_URL);
+    return this.http.get<UserOrgs[]>(this.BASE_URL + STARRED_URL);
   }
 }
