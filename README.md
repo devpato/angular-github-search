@@ -1,6 +1,14 @@
 # GithubSearch
 
-This small app using the Github API to search and retrive the information from the Github users.
+This small app using the Github API to search and retrive the information from the Github users. **Desktop version only**
+
+
+## Stack
+<p>Angular<p>
+<p>SASS<p>
+<p>RxJS<p>
+<p>NGRX<p>
+<p>PrimeNG<p>
 
 ## Online version
 
